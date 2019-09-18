@@ -1,10 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Sign Up</title>
+<?php
+if (isset($_POST['submit'])) 
+{
+    $un=$_POST['username'];
+    $em=$_POST['email'];
+    $pw=$_POST['password'];
+    $cpw=$_POST['confirm'];
+}
+echo 'Welcome $un';
+?>
 <style>
     h1{
         margin-bottom: 50px;;
@@ -42,6 +46,12 @@
         font-weight: 500;
         text-transform: uppercase;}
 </style>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sign Up</title>
 </head>
 <body>
         <div class="center-box">
@@ -51,20 +61,9 @@
                 <input type="text" name="email" placeholder="email"/>
                 <input type="password" name="password" placeholder="password"/>
                 <input type="password" name="confirm" placeholder="confirm password"/><br>
-                  <p>By creating an account you agree to our <a href="#" >Terms & Privacy</a></p>
+                  <p>By creating an account you agree to our <a href="#" >Terms & Privacy</a>.</p>
                 <input type="submit" name="submit" value="Submit"/>
         
             </div>
-</body>
+            </body>
 </html>
-
-<?php
-if (isset($_POST['submit'])) 
-{
-    $un=$_POST['username'];
-    $em=$_POST['email'];
-    $pw=$_POST['password'];
-    $cpw=$_POST['confirm'];
-}
-echo 'Welcome $un';
-?>

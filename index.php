@@ -1,5 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
+<?php
+session_start();
+
+$em='email';
+$pw='password';
+
+if (isset($_SESSION['login']) && $_SESSION['login'] == true) {
+    header("Location: home.php");
+}
+if (isset($_POST['email']) && isset($_POST['password'])) 
+{
+    if ($_POST['email']) == $em && ($_POST['password']) == $pw
+    $_SESSION['loggedin'] = true;
+    header("Location: home.php");
+}
+?>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,8 +33,7 @@
    }
    h1{
        color: #014344;
-       text-align: center;
-​    }
+       text-align: center;}
    h3{
       text-align: center;
    }
@@ -76,7 +91,7 @@ a{
         <div class="login">
                 <h1>WE CAN!</h1>
 <h3>MEMBERS LOGIN</h3>
-<form action="">
+<form method="post" action="index.php">
     <div class="form">
         <div>
         <label id="email-label">Email:</label> <br>
@@ -87,7 +102,7 @@ a{
         <input id="password"required type="Number" min="1" max="120" placeholder ="Password">
         </div>
         <div>
-        <button class="login">LOGIN</button>
+        <button>LOGIN</button>
     </div>
     <div class="check">
 <input type="checkbox"value="1"> 
@@ -102,21 +117,5 @@ a{
 <div class="footer">
     Don't have an account? <br><a href="signUPform.html">Register</a>
 </div>
-        
-​
 </body>
 </html>
-
-<?php
-if (isset($_POST['login'])) {
-    $un=$_POST['email'];
-    $pw=$_POST['password'];
-
-    if ($un=='email' && $pw=='password') {
-        header ("location:home.html");
-        exit();
-    }
-    else
-    echo "<scrip>alert('Invalid Username/Password')</script>";
-}
-?>
