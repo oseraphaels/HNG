@@ -1,21 +1,5 @@
 <!DOCTYPE html>
-<?php
-session_start();
-
-$email ='email';
-$password ='password';
-
-if (isset($_SESSION['login']) && $_SESSION['login'] == true) {
-    header("Location: home.php");
-}
-if (isset($_POST['email']) && isset($_POST['password'])) {
-    if ($_POST['email'] == $email && $_POST['password'] == $password)
-
-    $_SESSION['loggedin'] = true;
-    header("Location: home.php");
-}
-?>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -33,7 +17,8 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
    }
    h1{
        color: #014344;
-       text-align: center;}
+       text-align: center;
+​    }
    h3{
       text-align: center;
    }
@@ -91,23 +76,19 @@ a{
         <div class="login">
                 <h1>WE CAN!</h1>
 <h3>MEMBERS LOGIN</h3>
-<form method="post" action="home.php">
-    <table align="center">
-        <tr>
+<form action="">
+    <div class="form">
         <div>
-            <td><input type="text"required name="username" placeholder="Enter Username/Email "></td>
+        <label id="email-label">Email:</label> <br>
+        <input id="email"required placeholder="Email or username ">
         </div>
-        <tr>
-            <div>
-                <td><input type="password"required name="password" placeholder ="Enter Password"></td>
-            </div>
-            <tr>
-                <div>
-                    <td align="right" colspan="4"><input type=button name="login" value="Login"></td>
-                </div>
-            </tr>
-        </tr>
-    </table>
+        <div>
+        <label id="Number-label">PASSWORD:</label> <br>
+        <input id="password"required type="Number" min="1" max="120" placeholder ="Password">
+        </div>
+        <div>
+        <button class="login">LOGIN</button>
+    </div>
     <div class="check">
 <input type="checkbox"value="1"> 
 <label >Remember Password?</label>
@@ -119,7 +100,22 @@ a{
 ​
 ​
 <div class="footer">
-    Don't have an account? <br><a href="signUPform.php">Register</a>
+    Don't have an account? <br><a href="signUPform.html">Register</a>
 </div>
+        
+​
 </body>
 </html>
+
+<?php
+if (isset($_POST['login'])) {
+    $un=$_POST['email'];
+    $pw=$_POST['password'];
+    if ($un=='email' && $pw=='password') {
+        header ("location:home.html");
+        exit();
+    }
+    else
+    echo "<scrip>alert('Invalid Username/Password')</script>";
+}
+?>
