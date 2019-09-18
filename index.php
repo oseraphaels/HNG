@@ -117,11 +117,11 @@
                 <div class="form">
                     <div>
                         <label id="email-label">Email:</label> <br>
-                        <input id="username" required placeholder="Username/Email">
+                        <input type="username" required placeholder="Username/Email">
                     </div>
                     <div>
                         <label id="password-label">Password:</label> <br>
-                        <input id="password" required placeholder="Password">
+                        <input type="password" required placeholder="Password">
                     </div>
                     <div>
                         <button>LOGIN</button>
