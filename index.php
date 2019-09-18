@@ -83,7 +83,7 @@ a{
         </div>
         <div>
         <label id="Number-label">PASSWORD:</label> <br>
-        <input id="password"required type="Number" min="1" max="120" placeholder ="Password">
+        <input id="password"required type="Number" min="1" max="123456789" placeholder ="Password">
         </div>
         <div>
         <button>LOGIN</button>
