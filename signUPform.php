@@ -7,7 +7,7 @@
         $pw = $_POST['password'];
         $cpw = $_POST['confirm'];
     }
-    echo "Welcome $un, your registered Email is $em."
+    
   ?>
 
  <head>
