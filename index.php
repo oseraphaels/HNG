@@ -99,7 +99,7 @@ a{
 ​
 ​
 <div class="footer">
-    Don't have an account? <br><a href="signUPform.html">Register</a>
+    Don't have an account? <br><a href="signUPform.php">Register</a>
 </div>
 </body>
 </html>
