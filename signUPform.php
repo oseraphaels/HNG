@@ -56,11 +56,11 @@
 </html>
 
 <?php
-if (isset($_POST['submit'])) 
-{
+  if (isset($_POST['submit'])) 
+  {
     $un=$_POST['username'];
     $em=$_POST['email'];
     $pw=$_POST['password'];
     $cpw=$_POST['confirm'];
-}
+  }
 ?>
