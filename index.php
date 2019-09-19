@@ -1,27 +1,27 @@
 <!DOCTYPE html>
 <html>
 <?php
-    $username = $_POST['username'];
-    $password = $_POST['password'];
-    $error = "";
-    $success = "";
+$username = $_POST['username'];
+$password = $_POST['password'];
+$error = "";
+$success = "";
 
-   if (isset($_POST['login'])) {
-        if ($username == "admin") {
-           if ($password == "admin") {
-              $error = "";
-              $success = "Welcome Admin!";
-             //redirect on successful login
-             header("Location: home.php");
-            } else {
+if (isset($_POST['login'])) {
+    if ($username == "admin") {
+        if ($password == "admin") {
+            $error = "";
+            $success = "Welcome Admin!";
+            //redirect on successful login
+            header("Location: home.php");
+        } else {
             $error = "Invalid Password";
             $success = "";
-            }
-            } else {
-           $error = "Invalid Username";
-           $success = "";
         }
-    }  
+    } else {
+        $error = "Invalid Username";
+        $success = "";
+    }
+}
 
 ?>
 
@@ -113,18 +113,18 @@
             <h3>MEMBERS LOGIN</h3>
             <p class="error"><?php echo $error; ?></p>
             <p class="success"><?php echo $success; ?></p>
-            <form method="post">
+            <form method="post" action="">
                 <div class="form">
                     <div>
                         <label id="email-label">Email:</label> <br>
-                        <input type="username" required placeholder="Username/Email">
+                        <input type="username" name="username" required placeholder="Username/Email">
                     </div>
                     <div>
                         <label id="password-label">Password:</label> <br>
-                        <input type="password" required placeholder="Password">
+                        <input type="password" name="password" required placeholder="Password">
                     </div>
                     <div>
-                        <button>LOGIN</button>
+                        <button type="submit" name="login"> LOGIN </button>
                     </div>
                     <div class="check">
                         <input type="checkbox" value="1">
