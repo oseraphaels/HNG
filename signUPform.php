@@ -27,6 +27,9 @@ if (isset($_POST['login'])) {
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Sign Up</title>
   <style>
+  form{
+    background-color:#b2f6ed;
+  }
     h1 {
       margin-bottom: 50px;
       ;
