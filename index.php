@@ -213,7 +213,7 @@ if (isset($_POST['login'])) {
             </form>
             <p class="account">
                 Don't have an account yet? <br />
-                <strong><a href="">Register Here!</a> </strong>
+                <strong><a href="signUPform.php">Register Here!</a> </strong>
             </p>
         </div>
         <div class="display">
