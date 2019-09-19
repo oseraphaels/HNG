@@ -1,16 +1,27 @@
 <!DOCTYPE html>
 <html>
-  <?php
-    if (isset($_POST['submit'])) {
-        $un = $_POST['username'];
-        $em = $_POST['email'];
-        $pw = $_POST['password'];
-        $cpw = $_POST['confirm'];
-    }
-    
-  ?>
+<?php
 
- <head>
+if (isset($_POST['login'])) {
+  if ($username == "admin") {
+    if ($password == "admin") {
+      $error = "";
+      $success = "Welcome Admin!";
+      //redirect on successful login
+      header("Location: home.php");
+    } else {
+      $error = "Invalid Password";
+      $success = "";
+    }
+  } else {
+    $error = "Invalid Username";
+    $success = "";
+  }
+}
+
+?>
+
+<head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -54,20 +65,31 @@
       text-transform: uppercase;
     }
   </style>
- </head>
+</head>
 
- <body>
-  <div class="center-box">
-    <h1>Sign Up</h1>
-
-    <input type="text" name="username" placeholder="username" />
-    <input type="text" name="email" placeholder="email" />
-    <input type="password" name="password" placeholder="password" />
-    <input type="password" name="confirm" placeholder="confirm password" /><br>
-    <p>By creating an account you agree to our <a href="#">Terms & Privacy</a></p>
-    <input type="submit" name="submit" value="Submit" />
-
-  </div>
- </body>
+<body>
+  <form method="post" action="home.php">
+    <div class="center-box">
+      <h1>Sign Up</h1>
+      <div>
+        <input type="text" name="username" required placeholder="Username">
+      </div>
+      <div>
+        <input type="text" name="email" required placeholder="Email">
+      </div>
+      <div>
+        <input type="password" name="password" required placeholder="Password">
+      </div>
+      <div>
+        <input type="password" name="password" required placeholder="Confirm Password">
+      </div>
+      <div>
+        <input type="submit" name="login"SUBMIT>
+      </div>
+      <div>
+        <p> By creating an account you agree to our <a href="#">Terms & Conditions</a></p>
+      </div>
+  </form>
+</body>
 
 </html>
