@@ -25,117 +25,206 @@ if (isset($_POST['login'])) {
 ?>
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>WE CAN</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial;
+            height: 100%;
+        }
+
+        #login-page {
+            display: flex;
+            height: 100vh;
+        }
+
+        .login {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex: 40%;
+            background-color: #014344;
+            flex-direction: column;
+            box-shadow: 10px 0px 56px -3px #014344;
+            position: relative;
+        }
+
+        .display {
+            flex: 60%;
+            background-color: #b2f6ed;
+            display: flex;
+            align-items: center;
+            padding-left: 2rem;
+        }
+
+        .wecan {
+            text-align: center;
+            padding: 0 10px;
+        }
+
+        h1.main-header {
+            background: linear-gradient(#014344, #e2faf6);
+            font-size: 6rem;
+            letter-spacing: -1rem;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .login-panel {
+            position: relative;
+            background-color: #b2f6ed;
+            top: -2.5rem;
+            margin: 0 auto;
+            padding: 2rem 0;
+            border-radius: 3px;
+            color: #014344;
+        }
+
+        .login-panel h2 {
+            font-weight: normal;
+            letter-spacing: 0.45rem;
+            text-align: center;
+        }
+
+        .login-items {
+            text-align: left;
+            max-width: 80%;
+            margin: 0 auto;
+            padding-top: 1rem;
+        }
+
+        .login-items h3 {
+            font-weight: 100;
+            font-size: 1rem;
+        }
+
+        .login-inputs {
+            padding: 12px 18px;
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            width: 100%;
+            color: #014344;
+            outline: none;
+            border: none;
+        }
+
+        .login-items .btn {
+            font-size: 1.5rem;
+            background-color: transparent;
+            border-color: #016b6d;
+            width: 100%;
+            padding: 0.8rem;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        .login-item .btn:active {
+            outline: none;
+        }
+
+        .login-item .btn:hover {
+            box-shadow: #014344;
+        }
+
+        .login-items a,
+        .login-items p {
+            font-size: 1.1rem;
+            text-decoration: none;
+            text-align: center;
+            color: #014344;
+            margin-bottom: 2rem;
+        }
+
+        .login-items a:hover {
+            text-decoration: underline;
+        }
+
+        .display .texts {
+            color: #014344;
+        }
+
+        .texts h1 {
+            font-size: 10rem;
+            letter-spacing: -10px;
+            font-weight: bolder;
+        }
+
+        .texts hr {
+            border: 2px solid #014344;
+            width: 60%;
+            position: relative;
+            top: -21px;
+        }
+
+        .texts p {
+            font-size: 2rem;
+            letter-spacing: 3px;
+        }
+
+        p.account,
+        p.account a {
+            color: #b2f6ed;
+            text-align: center;
+        }
+
+        @media (max-width: 650px) {
+            #login-page {
+                height: 100vh;
+                overflow: hidden;
+            }
+
+            .login {
+                flex: 100%;
+            }
+
+            .display {
+                display: none;
+            }
+        }
+    </style>
+    <title>WeCAN!</title>
 </head>
-<style>
-    .main {
-        background-color: #b2f6ed;
-        width: 100%;
-        height: 900px;
-        margin: auto;
-        padding: 0 20px 0 20px;
-
-    }
-
-    h1 {
-        color: #014344;
-        text-align: center;
-    }
-
-    h3 {
-        text-align: center;
-    }
-
-    form {
-        padding: 10px;
-    }
-
-    button {
-        height: 50%;
-        width: 50%;
-        padding: 15px;
-        margin: 12px;
-        text-align: center;
-        background-color: #b2f6ed;
-        color: #014344;
-        border: 3px solid #014344;
-        width: 200px;
-    }
-
-    #username {
-        padding: 10px;
-        width: 250px;
-    }
-
-    #password {
-        padding: 10px;
-        width: 250px;
-    }
-
-    .check {
-        text-align: center;
-        padding: 10px;
-        font-size: 20px
-    }
-
-    .forget {
-        text-align: center;
-        font-size: 20px;
-        padding: 0px;
-        color: #014344;
-    }
-
-    .footer {
-        left: 0;
-        bottom: 15px;
-        width: 30px;
-        width: 100%;
-        text-align: center;
-        position: fixed;
-        background-color: #014344;
-        font-size: 25px;
-    }
-
-    a {
-        color: #b2f6ed;
-    }
-</style>
 
 <body>
-    <div class="main">
-
+    <div class="container" id="login-page">
         <div class="login">
-            <h1>WE CAN!</h1>
-            <h3>MEMBERS LOGIN</h3>
-            <p class="error"><?php echo $error; ?></p>
-            <p class="success"><?php echo $success; ?></p>
-            <form method="post" action="">
-                <div class="form">
-                    <div>
-                        <label id="email-label">Username:</label> <br>
-                        <input type="username" name="username" required placeholder="Username/Email">
+            <form class="wecan" method="post" action="home.php">
+                <h1 class="main-header">WeCAN!</h1>
+                <div class="login-panel">
+                    <h2>Members Login</h2>
+                    <div class="login-items">
+                        <h3>Email or Username</h3>
+                        <input autofocus class="login-inputs" type="text" name="" id=" " />
+                        <h3>Password</h3>
+                        <input class="login-inputs" type="password" name="" id="" />
+                        <button type="submit" class="btn">Login</button>
+                        <p>
+                            <a href=""><input type="checkbox" name="" id="" /> Remember Me </a>
+                        </p>
                     </div>
-                    <div>
-                        <label id="password-label">Password:</label> <br>
-                        <input type="password" name="password" required placeholder="Password">
-                    </div>
-                    <div>
-                        <button type="submit" name="login"> LOGIN </button>
-                    </div>
-                    <div class="check">
-                        <input type="checkbox" value="1">
-                        <label>Remember Password?</label>
-                    </div>
-                    <div class="forget">
-                        <a href="">Forgotten Password?</a>
-                    </div>
+                </div>
             </form>
-            <div class="footer">
-                Don't have an account? <br><a href="signUPform.php">Register</a>
+            <p class="account">
+                Don't have an account yet? <br />
+                <strong><a href="">Register Here!</a> </strong>
+            </p>
+        </div>
+        <div class="display">
+            <div class="texts">
+                <h1>WeCAN!</h1>
+                <hr />
+                <p>Expore</p>
+                <p>Projects ../</p>
             </div>
+        </div>
+    </div>
 </body>
 
 </html>
