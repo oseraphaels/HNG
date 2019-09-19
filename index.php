@@ -67,12 +67,12 @@ if (isset($_POST['login'])) {
 
     #username {
         padding: 10px;
-        width: 200px;
+        width: 250px;
     }
 
     #password {
         padding: 10px;
-        width: 200px;
+        width: 250px;
     }
 
     .check {
@@ -115,7 +115,7 @@ if (isset($_POST['login'])) {
             <form method="post" action="">
                 <div class="form">
                     <div>
-                        <label id="email-label">Email:</label> <br>
+                        <label id="email-label">Username:</label> <br>
                         <input type="username" name="username" required placeholder="Username/Email">
                     </div>
                     <div>
