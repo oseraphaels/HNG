@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
 <?php
-
 if (isset($_POST['login'])) {
   if ($username == "admin") {
     if ($password == "admin") {
@@ -27,9 +26,32 @@ if (isset($_POST['login'])) {
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Sign Up</title>
   <style>
-  form{
-    background-color:#b2f6ed;
-  }
+    .main {
+      background-color: #b2f6ed;
+      width: 100%;
+      height: 900px;
+      margin: auto;
+      padding: 0 20px 0 20px;
+
+    }
+
+    h2 {
+      color: #014344;
+      text-align: center;
+    }
+
+
+
+    #email {
+      padding: 10px;
+      width: 200px;
+    }
+
+    #password {
+      padding: 10px;
+      width: 200px;
+    }
+
     h1 {
       margin-bottom: 50px;
       ;
@@ -71,7 +93,8 @@ if (isset($_POST['login'])) {
 </head>
 
 <body>
-  <form method="post" action="home.php">
+  <div class="main">
+  <form method="get" action="homepage.php">
     <div class="center-box">
       <h1>Sign Up</h1>
       <div>
@@ -87,12 +110,13 @@ if (isset($_POST['login'])) {
         <input type="password" name="password" required placeholder="Confirm Password">
       </div>
       <div>
-        <input type="submit" name="login"SUBMIT>
+        <input type="submit" name="login" SUBMIT>
       </div>
       <div>
         <p> By creating an account you agree to our <a href="#">Terms & Conditions</a></p>
       </div>
   </form>
+  </div>
 </body>
 
 </html>
