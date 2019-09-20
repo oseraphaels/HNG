@@ -5,7 +5,6 @@ $username = $_POST['username'];
 $password = $_POST['password'];
 $error = "";
 $success = "";
-
 if (isset($_POST['login'])) {
     if ($username == "admin") {
         if ($password == "admin") {
@@ -14,15 +13,16 @@ if (isset($_POST['login'])) {
             //redirect on successful login
             header("Location: home.php");
         } else {
-            $error = "Invalid Password";
+            $error = "Invalid Username/Password";
             $success = "";
         }
     } else {
-        $error = "Invalid Username";
+        $error = "Invalid Username/Password";
         $success = "";
     }
 }
 ?>
+
 
 <head>
     <meta charset="UTF-8" />
@@ -195,18 +195,18 @@ if (isset($_POST['login'])) {
 <body>
     <div class="container" id="login-page">
         <div class="login">
-            <form class="wecan" method="post" action="home.php">
+            <form method="post" class="wecan" action="index.php">
                 <h1 class="main-header">WeCAN!</h1>
                 <div class="login-panel">
                     <h2>Members Login</h2>
                     <div class="login-items">
-                        <h3>Email or Username</h3>
-                        <input autofocus class="login-inputs" type="text" name="" id=" " />
+                        <h3>Username/Email</h3>
+                        <input autofocus class="login-inputs" type="text" name="username" required id="username" />
                         <h3>Password</h3>
-                        <input class="login-inputs" type="password" name="" id="" />
-                        <button type="submit" class="btn">Login</button>
+                        <input class="login-inputs" type="password" name="password" required id="password" />
+                        <button type="submit" name="login" class="btn">Login</button>
                         <p>
-                            <a href=""><input type="checkbox" name="" id="" /> Remember Me </a>
+                            <a href="#"><input type="checkbox" name="" id="" /> Remember Me </a>
                         </p>
                     </div>
                 </div>
@@ -221,7 +221,7 @@ if (isset($_POST['login'])) {
                 <h1>WeCAN!</h1>
                 <hr />
                 <p>Expore</p>
-                <p>Projects ../</p>
+                <p>Projects</p>
             </div>
         </div>
     </div>
