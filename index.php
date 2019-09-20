@@ -201,9 +201,9 @@ if (isset($_POST['login'])) {
                     <h2>Members Login</h2>
                     <div class="login-items">
                         <h3>Username/Email</h3>
-                        <input autofocus class="login-inputs" type="text" name="username" required id="username" />
+                        <input autofocus class="login-inputs" type="text" name="username" required id="username" placeholder="-admin-" />
                         <h3>Password</h3>
-                        <input class="login-inputs" type="password" name="password" required id="password" />
+                        <input class="login-inputs" type="password" name="password" required id="password" placeholder="-admin-" />
                         <button type="submit" name="login" class="btn">Login</button>
                         <p>
                             <a href="#"><input type="checkbox" name="" id="" /> Remember Me </a>
